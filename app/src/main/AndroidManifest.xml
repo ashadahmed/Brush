@@ -23,6 +23,7 @@
         <activity
             android:name=".ListFollowersActivity"
             android:parentActivityName=".MainActivity" />
+        <activity android:name=".SelectionActivity"></activity>
         <activity
             android:name=".UserProfileActivity"
             android:parentActivityName=".MainActivity" />

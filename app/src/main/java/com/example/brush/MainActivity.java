@@ -174,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 postsRef
         ) {
             @Override
-            protected void populateViewHolder(PostViewHolder viewHolder, Posts model, int position) {
+            protected void populateViewHolder(PostViewHolder viewHolder, final Posts model, int position) {
                 // **announcement = 1, gallery = 2**
 
                 int choice;
@@ -206,6 +206,22 @@ public class MainActivity extends AppCompatActivity {
                         viewHolder.setDescription(model.getDescription(), choice); //
                         viewHolder.setUsername(model.getUsername(), choice); //
                         viewHolder.setBuy_Now_Button(choice); //
+                        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view)
+                            {
+                                Intent bidIntent = new Intent(MainActivity.this, SelectionActivity.class);
+                                Bundle extras = new Bundle();
+                                extras.putString("profilePicture", model.getProfilePicture());
+                                extras.putString("postImage", model.getPostimage());
+                                extras.putString("username", model.getUsername());
+                                extras.putString("description", model.getDescription());
+                                extras.putString("price", model.getPrice());
+                                extras.putString("uid", model.getUid());
+                                bidIntent.putExtras(extras);
+                                startActivity(bidIntent);
+                            }
+                        });
                     }
                     else if (model.getPostType().equals("announcement")) //4
                     {
