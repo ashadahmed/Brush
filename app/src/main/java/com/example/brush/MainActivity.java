@@ -234,6 +234,15 @@ public class MainActivity extends AppCompatActivity {
                         viewHolder.setDescription(model.getDescription(), choice); //
                         viewHolder.setUsername(model.getUsername(), choice); //
                         viewHolder.setBuy_Now_Button(choice);
+                        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view)
+                            {
+                                Intent intent = new Intent(MainActivity.this, PublicProfileActivity.class);
+                                intent.putExtra("userID", model.getUid());
+                                startActivity(intent);
+                            }
+                        });
                     }
                     else if (model.getPostType().equals("gallery")) //5
                     {
@@ -246,6 +255,15 @@ public class MainActivity extends AppCompatActivity {
                         viewHolder.setDescription(model.getDescription(), choice); //
                         viewHolder.setUsername(model.getUsername(), choice); //
                         viewHolder.setBuy_Now_Button(choice);
+                        viewHolder.mView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view)
+                            {
+                                Intent intent = new Intent(MainActivity.this, PublicProfileActivity.class);
+                                intent.putExtra("userID", model.getUid());
+                                startActivity(intent);
+                            }
+                        });
                     }
                     i++;
                 }

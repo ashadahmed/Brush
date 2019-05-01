@@ -273,6 +273,7 @@ public class PublicProfileActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }*/
 
+        //is sonia using circleimageview for posts?
         userProfileImage = (CircleImageView) findViewById(R.id.public_profile_default_pic);
         userMessage = (ImageButton) findViewById(R.id.public_profile_message);
         userUpdates = (ImageButton) findViewById(R.id.public_profile_updates);
@@ -297,7 +298,7 @@ public class PublicProfileActivity extends AppCompatActivity {
                         storage = FirebaseStorage.getInstance();
                         storageRef = storage.getReference();
                         //This is trying to get the image url if it finds it it goes to onSuccess function
-                        storageRef.child("profile images/" + currentUserId).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                        storageRef.child("profile images/" + userID).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                             @Override
                             public void onSuccess(Uri uri) {
                                 // uri is the link, we just have to change it to a string
